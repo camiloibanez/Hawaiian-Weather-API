@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 import datetime as dt
 import numpy as np
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 engine = create_engine("sqlite:///Resources/hawaii.sqlite")
 Base = automap_base()
@@ -17,14 +17,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return (f"Hawaii Weather Report Data<br/>"
-            f"available routes:<br/>"
-            f"/api/v1.0/precipitation<br/>"
-            f"/api/v1.0/stations<br/>"
-            f"/api/v1.0/tobs<br/>"
-            f"/api/v1.0/yyyy-mm-dd<br/>"
-            f"/api/v1.0/yyyy-mm-dd/yyyy-mm-dd"
-    )
+
+    return render_template("index.html")
 
 @app.route("/api/v1.0/precipitation")
 def precipitation():
