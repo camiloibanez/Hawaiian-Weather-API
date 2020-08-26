@@ -61,12 +61,12 @@ def temperature():
     session = Session(engine)
 
     last_day = dt.datetime.strptime(max(session.query(Measurement.date).all())[0], "%Y-%m-%d")
-    
+
     last_year = last_day - dt.timedelta(days=365)
 
     temps = session.query(Measurement.date, Measurement.tobs).filter(Measurement.station == 'USC00519281').\
-                                    filter(Measurement.date >= last_year.strftime('%Y-%m-%d')).\
-                                    order_by(Measurement.date).all()
+        filter(Measurement.date >= last_year.strftime('%Y-%m-%d')).\
+        order_by(Measurement.date).all()
     session.close()
 
     return jsonify(temps)
@@ -76,7 +76,7 @@ def weather_report(start):
     session = Session(engine)
 
     (TMIN, TAVG, TMAX) = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
-                                    filter(Measurement.date >= start).first()
+        filter(Measurement.date >= start).first()
 
     session.close()
 
@@ -89,8 +89,8 @@ def btn_weather_report(start, end):
     session = Session(engine)
 
     (TMIN, TAVG, TMAX) = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
-                                    filter(Measurement.date >= start).\
-                                    filter(Measurement.date <= end).first()
+        filter(Measurement.date >= start).\
+        filter(Measurement.date <= end).first()
     
     session.close()
 
