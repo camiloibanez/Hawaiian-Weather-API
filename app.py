@@ -60,9 +60,8 @@ def stations():
 def temperature():
     session = Session(engine)
 
-    last_day = dt.date(int(max(session.query(Measurement.date).all())[0][:4]), 
-                   int(max(session.query(Measurement.date).all())[0][5:7]), 
-                   int(max(session.query(Measurement.date).all())[0][8:]))
+    last_day = dt.datetime.strptime(max(session.query(Measurement.date).all())[0], "%Y-%m-%d")
+    
     last_year = last_day - dt.timedelta(days=365)
 
     temps = session.query(Measurement.date, Measurement.tobs).filter(Measurement.station == 'USC00519281').\
