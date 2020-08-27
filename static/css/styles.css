@@ -30,6 +30,11 @@ body {
   font-size: 20px;
 }
 
+.link {
+  text-decoration: none;
+  color: black;
+}
+
 .carousel-box {
   background-color: rgb(0,0,204);
   height: 420px;

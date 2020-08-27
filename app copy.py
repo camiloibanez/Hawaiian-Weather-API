@@ -4,8 +4,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 import datetime as dt
 import numpy as np
-from flask import Flask, jsonify, render_template
-import requests
+from flask import Flask, jsonify, request, render_template
 
 engine = create_engine("sqlite:///Resources/hawaii.sqlite")
 Base = automap_base()
@@ -51,10 +50,10 @@ def stations():
 
     return jsonify(stations_list)
 
-@app.route("/api/v1.0/temperatureform")
+@app.route("/api/v1.0/form")
 def tempForm():
 
-    return render_template("temperature_form.html")
+     return render_template("temperature_form.html")
 
 @app.route("/api/v1.0/tobs")
 def temperature():
@@ -71,36 +70,41 @@ def temperature():
 
     return jsonify(temps)
 
-@app.route("/api/v1.0/temp")
-def weather_report(start):
-    session = Session(engine)
+@app.route("/api/v1.0/temp", methods=['POST', 'GET'])
+def weather_report():
 
-    start = request.form.get('testDate', '2016-02-02')
-    (TMIN, TAVG, TMAX) = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
-        filter(Measurement.date >= start).first()
+    if request.method == 'POST':
+        session = Session(engine)
 
-    session.close()
+        start = request.form.get('testDate', '2016-02-02')
 
-    temp_avgs = [TMIN, TAVG, TMAX]
+        (TMIN, TAVG, TMAX) = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
+            filter(Measurement.date >= start).first()
 
-    return jsonify(temp_avgs)
+        session.close()
 
-@app.route("/api/v1.0/temps")
-def btn_weather_report(start, end):
-    session = Session(engine)
+        temp_avgs = [TMIN, TAVG, TMAX]
 
-    start = request.form.get('startDate', '2017-03-03')
-    end = request.form.get('endDate', '2017-03-04')
-    
-    (TMIN, TAVG, TMAX) = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
-        filter(Measurement.date >= start).\
-        filter(Measurement.date <= end).first()
-    
-    session.close()
+        return jsonify(temp_avgs)
 
-    temp_avgs = [TMIN, TAVG, TMAX]
+@app.route("/api/v1.0/temps", methods=['POST', 'GET'])
+def btn_weather_report():
 
-    return jsonify(temp_avgs)
+    if request.method == 'POST':
+        session = Session(engine)
+
+        start = request.form.get('startDate', '2017-03-03')
+        end = request.form.get('endDate', '2017-03-04')
+
+        (TMIN, TAVG, TMAX) = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
+            filter(Measurement.date >= start).\
+            filter(Measurement.date <= end).first()
+        
+        session.close()
+
+        temp_avgs = [TMIN, TAVG, TMAX]
+
+        return jsonify(temp_avgs)
 
 
 if __name__ == '__main__':

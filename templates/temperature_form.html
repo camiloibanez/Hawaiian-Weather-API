@@ -3,17 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../static/css/styles2.css">
     <title>Hawaiian Weather API</title>
 </head>
 <body>
-    <form action="{{ url_for('/api/v1.0/temp')}}" method="post">
-        <input type="text" name="testDate">
-        <input type="submi">
-    </form>
-    <form action="{{ url_for('/api/v1.0/temps')}}" method="post">
-        <input type="text" name="startDate">
-        <input type="text" name="endDate">
-        <input type="submit">
-    </form>
+    <div class="header">
+        <h2 class="title">
+            <a class="link" href="../../../">Hawaii Weather Report</a>
+        </h2>
+        <div class="menu-btn-box">
+            <span class="menu-btn">
+                <a class="link" href="./api/v1.0/tobs">Temperatures</a>
+            </span>
+        </div>
+        <div class="menu-btn-box">
+            <span class="menu-btn">
+                <a class="link" href="/">Temperature Summary</a>
+            </span>
+        </div>
+        <div class="menu-btn-box">
+            <span class="menu-btn">
+                <a class="link" href="./api/v1.0/stations">Stations</a>
+            </span>
+        </div>
+        <div class="menu-btn-box">
+            <span class="menu-btn">
+                <a class="link" href="./api/v1.0/precipitation">Precipitation</a>
+            </span>
+        </div>
+    </div>  
+
+    <div class="text">
+        <div class="card card1">
+            <div class="card-header">
+                <h2 class="card-header-text">The minimum, average, and maximum temperature of the date you select</h2>
+            </div>
+            <h5>Pick a date between 2010-01-01 and 2017-08-23</h5>
+            <form action="./temp" method="POST">
+                <label>Pick a date:</label>
+                <input type="date" name="testDate">
+                <input type="submit">
+            </form>
+        </div>
+        <div class="card card2">
+            <div class="card-header">
+                <h2 class="card-header-text">Minimum, average, and maximum temperature for the date range you select</h2>
+            </div>
+            <form action="./temps" method="POST">
+                <label>Pick a start date:</label>
+                <input type="date" name="startDate">
+                <label>Pick an end date:</label>
+                <input type="date" name="endDate">
+                <input type="submit">
+            </form>            
+
+        </div>
+    </div>
+    <!-- 2010-01-01 to 2017-08-23 -->
 </body>
 </html>
