@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawaiian Weather API</title>
+</head>
+<body>
+    <form action="{{ url_for('/api/v1.0/temp')}}" method="post">
+        <input type="text" name="testDate">
+        <input type="submi">
+    </form>
+    <form action="{{ url_for('/api/v1.0/temps')}}" method="post">
+        <input type="text" name="startDate">
+        <input type="text" name="endDate">
+        <input type="submit">
+    </form>
+</body>
+</html>

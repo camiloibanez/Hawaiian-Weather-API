@@ -7,42 +7,55 @@
     <title>Hawaiian Weather API</title>
 </head>
 <body>
-    <!-- Slideshow container -->
-    <div class="slideshow-container">
+    <div class="header">
+        <h2 class="title">Hawaii Weather Report</h2>
+        <div class="menu-btn-box">
+            <span class="menu-btn">Precipitation</span>
+        </div>
+        <div class="menu-btn-box">
+            <span class="menu-btn">Stations</span>
+        </div>
+        <div class="menu-btn-box">
+            <span class="menu-btn">Temperatures</span>
+        </div>
+    </div>  
+    <div class="carousel-box">
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
 
-    <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade">
-            <img class="slideImg" src="../static/images/610d28ed-f048-4808-bbef-589bc5ef6cc6-Hawaii.jpg">
-        </div>
-    
-        <div class="mySlides fade">
-            <img class="slideImg" src="../static/images/mauna-lani-palm-villas-d2-in-kamuela-hawaii_750xx3000-1691-0-240.jpg">
-        </div>
-    
-        <div class="mySlides fade">
-            <img class="slideImg" src="../static/images/download.jpg">
-        </div>
+        <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <img class="slideImg" src="../static/images/610d28ed-f048-4808-bbef-589bc5ef6cc6-Hawaii.jpg">
+            </div>
+        
+            <div class="mySlides fade">
+                <img class="slideImg" src="../static/images/mauna-lani-palm-villas-d2-in-kamuela-hawaii_750xx3000-1691-0-240.jpg">
+            </div>
+        
+            <div class="mySlides fade">
+                <img class="slideImg" src="../static/images/download.jpg">
+            </div>
 
-        <div class="mySlides fade">
-            <img class="slideImg" src="../static/images/oahu.jpg">
-        </div>
+            <div class="mySlides fade">
+                <img class="slideImg" src="../static/images/oahu.jpg">
+            </div>
 
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
     </div>
-    <br>
+    <!-- <br> -->
   
   <!-- The dots/circles -->
-    <div style="text-align:center">
+    <div class="dots" style="text-align:center">
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
         <span class="dot" onclick="currentSlide(4)"></span>
     </div>
-  
-    <h1>Hawaii Weather Report Data</h1>
-    <h3>available routes:</h3>
+  <div class="bodyText">
+    <h3 class="subtitle">available routes:</h3>
     <ul>
         <li>/api/v1.0/precipitation</li>
         <li>/api/v1.0/stations</li>
@@ -50,7 +63,8 @@
         <li>/api/v1.0/yyyy-mm-dd</li>
         <li>/api/v1.0/yyyy-mm-dd/yyyy-mm-dd</li>
     </ul>
-
+  </div>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="../static/js/logic.js"></script>
 </body>
