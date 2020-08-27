@@ -26,3 +26,35 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
+
+$(".slideshow-container > div:gt(0)").hide();
+
+var sliding = "going";
+
+var sliderInterval = setInterval(function() { 
+  plusSlides(1);
+},  3000);
+
+$(".dot").click(function() {
+    clearInterval(sliderInterval);
+    sliding = "stopped";
+})
+
+$(".prev").click(function() {
+  clearInterval(sliderInterval);
+  sliding = "stopped";
+})
+
+$(".next").click(function() {
+  clearInterval(sliderInterval);
+  sliding = "stopped";
+})
+
+$(".slideImg").click(function() {
+  if (sliding == "stopped") {
+    sliderInterval = setInterval(function() { 
+      plusSlides(1);
+    },  3000);
+    sliding = "going";
+  }
+})
