@@ -41,7 +41,7 @@ body {
 
 .text {
   width: 100%;
-  height: 1900px;
+  height: 1970px;
 }
 
 .card {
@@ -129,4 +129,19 @@ input {
   margin-right: auto;
   margin-top:350px;
   width: 324px;
+}
+
+.footer {
+  width: 100%;
+  background-color: rgb(101,101,101);
+  height: 40px;
+}
+
+.source {
+  margin-top: 9px;
+  margin-right: 6px;
+  color: white;
+  text-decoration: none;
+  float: right;
+  font-size: 18px;
 }
