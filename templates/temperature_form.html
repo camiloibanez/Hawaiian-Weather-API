@@ -13,12 +13,7 @@
         </h2>
         <div class="menu-btn-box">
             <span class="menu-btn">
-                <a class="link" href="./api/v2.0/tobs">Temperatures</a>
-            </span>
-        </div>
-        <div class="menu-btn-box">
-            <span class="menu-btn">
-                <a class="link" href="/">Temperature Summary</a>
+                <a class="link" href="/">Temperatures</a>
             </span>
         </div>
         <div class="menu-btn-box">
@@ -38,7 +33,7 @@
             <div class="card-header">
                 <h2 class="card-header-text">The minimum, average, and maximum temperature of the date you select</h2>
             </div>
-            <h5 class="dateType">Pick a date between 2010-01-01 and 2017-08-23</h5>
+            <h5 class="dataType">Pick a date between 2010-01-01 and 2017-08-23</h5>
             <form action="./temp" method="POST">
                 <div class="input1LabelBox">
                     <p class="input1Label">Pick a date:</p>
@@ -51,7 +46,7 @@
             <div class="card-header">
                 <h2 class="card-header-text">Minimum, average, and maximum temperature for the date range you select</h2>
             </div>
-            <h5 class="dateType">Pick a dates between 2010-01-01 and 2017-08-23</h5>
+            <h5 class="dataType">Pick a dates between 2010-01-01 and 2017-08-23</h5>
             <form action="./temps" method="POST">
                 <div class="form2Inputs">
                     <div class="input2Box">
@@ -65,9 +60,29 @@
                 </div>
                 <input class="submit" type="submit">
             </form>            
-
+        </div>
+        <div class="card card3">
+            <div class="card-header">
+                <h2 class="card-header-text">Temperature for the most recent year on record at that station</h2>
+            </div>
+            <h5 class="dataType">Pick a weather station</h5>
+            <form action="./tobs" method="POST">
+                <div class="input4Box">
+                    <select id="stationSelector" name="station">
+                        <option value="USC00519397">WAIKIKI 717.2, HI US</option>
+                        <option value="USC00513117">KANEOHE 838.1, HI US</option>
+                        <option value="USC00514830">KUALOA RANCH HEADQUARTERS 886.9, HI US</option>
+                        <option value="USC00517948">PEARL CITY, HI US</option>
+                        <option value="USC00518838">UPPER WAHIAWA 874.3, HI US</option>
+                        <option value="USC00519523">WAIMANALO EXPERIMENTAL FARM, HI US</option>
+                        <option value="USC00519281">WAIHEE 837.5, HI US</option>
+                        <option value="USC00511918">HONOLULU OBSERVATORY 702.2, HI US</option>
+                        <option value="USC00516128">MANOA LYON ARBO 785.2, HI US</option>
+                    </select>   
+                </div>
+                <input class="submit" type="submit">
+            </form>
         </div>
     </div>
-    <!-- 2010-01-01 to 2017-08-23 -->
 </body>
 </html>

@@ -55,20 +55,24 @@ def tempForm():
 
      return render_template("temperature_form.html")
 
-@app.route("/api/v2.0/tobs")
+@app.route("/api/v2.0/tobs", methods=["POST", "GET"])
 def temperature():
-    session = Session(engine)
+    if request.method == "POST":
+        session = Session(engine)
 
-    last_day = dt.datetime.strptime(max(session.query(Measurement.date).all())[0], "%Y-%m-%d")
+        station = request.form.get('station','USC00511918')
 
-    last_year = last_day - dt.timedelta(days=365)
+        last_day = max(session.query(Measurement.date).filter(Measurement.station == station).all())[0]
+        last_day = dt.datetime.strptime(last_day, "%Y-%m-%d")
 
-    temps = session.query(Measurement.date, Measurement.tobs).filter(Measurement.station == 'USC00519281').\
-        filter(Measurement.date >= last_year.strftime('%Y-%m-%d')).\
-        order_by(Measurement.date).all()
-    session.close()
+        last_year = last_day - dt.timedelta(days=365)
 
-    return jsonify(temps)
+        temps = session.query(Measurement.date, Measurement.tobs).filter(Measurement.station == station).\
+            filter(Measurement.date >= last_year.strftime('%Y-%m-%d')).\
+            order_by(Measurement.date).all()
+        session.close()
+
+        return jsonify(temps)
 
 @app.route("/api/v2.0/temp", methods=['POST', 'GET'])
 def weather_report():
