@@ -20,6 +20,7 @@ body {
   padding-right: 5px;
   padding-top: 10px;
   height: 44px;
+  z-index: 5;
 }
 
 .menu-btn-box:hover {

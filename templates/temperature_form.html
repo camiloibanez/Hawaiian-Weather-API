@@ -38,23 +38,32 @@
             <div class="card-header">
                 <h2 class="card-header-text">The minimum, average, and maximum temperature of the date you select</h2>
             </div>
-            <h5>Pick a date between 2010-01-01 and 2017-08-23</h5>
+            <h5 class="dateType">Pick a date between 2010-01-01 and 2017-08-23</h5>
             <form action="./temp" method="POST">
-                <label>Pick a date:</label>
-                <input type="date" name="testDate">
-                <input type="submit">
+                <div class="input1LabelBox">
+                    <p class="input1Label">Pick a date:</p>
+                </div>
+                <input id="input1" type="date" name="testDate">
+                <input class="submit" type="submit">
             </form>
         </div>
         <div class="card card2">
             <div class="card-header">
                 <h2 class="card-header-text">Minimum, average, and maximum temperature for the date range you select</h2>
             </div>
+            <h5 class="dateType">Pick a dates between 2010-01-01 and 2017-08-23</h5>
             <form action="./temps" method="POST">
-                <label>Pick a start date:</label>
-                <input type="date" name="startDate">
-                <label>Pick an end date:</label>
-                <input type="date" name="endDate">
-                <input type="submit">
+                <div class="form2Inputs">
+                    <div class="input2Box">
+                        <p class="input2Label">Pick a start date:</p>
+                        <input id="input2" type="date" name="startDate">
+                    </div>
+                    <div class="input3Box">
+                        <p class="input3Label">Pick an end date:</p>
+                        <input id="input3" type="date" name="endDate">
+                    </div>
+                </div>
+                <input class="submit" type="submit">
             </form>            
 
         </div>

@@ -20,6 +20,7 @@ body {
   padding-right: 5px;
   padding-top: 10px;
   height: 44px;
+  z-index: 5;
 }
 
 .menu-btn-box:hover {
@@ -35,22 +36,12 @@ body {
   color: black;
 }
 
+* {box-sizing:border-box}
+
+
 .text {
   width: 100%;
   height: 1400px;
-}
-
-input {
-  display: block;
-  margin: auto;
-  height: 40px;
-  width: 200px;
-  font-size: 18px;
-}
-
-label {
-  display: block;
-  margin: auto;
 }
 
 .card {
@@ -59,6 +50,14 @@ label {
   max-width: 820px;
   border: 5px solid rgb(192,192,192);
   border-radius: 5px;
+}
+
+.card1 {
+  margin-top: 30px;
+}
+
+.card2 {
+  margin-top: 50px;
 }
 
 .card-header {
@@ -75,14 +74,49 @@ label {
   padding-left: 10px;
 }
 
-h5 {
+.dateType {
   margin-left: 5px;
   margin-top: 5px;
 }
-.card1 {
-  margin-top: 30px;
+
+input {
+  height: 40px;
+  width: 200px;
+  font-size: 18px;
 }
 
-.card2 {
-  margin-top: 50px;
+.input1LabelBox {
+  margin-top: 288px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#input1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form2Inputs {
+  display: block;
+  width: 436px;
+  margin-top: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input2Box,
+.input3Box {
+  display: inline-block;
+}
+
+.input3Box {
+  float: right;
+}
+
+.submit {
+  margin-top: 14px !important;
+  display: block;
+  margin: auto;
 }
