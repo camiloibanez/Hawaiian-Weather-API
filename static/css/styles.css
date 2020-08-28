@@ -1,12 +1,12 @@
 body {
   margin: 0px;
-  background-color: rgb(0,255,0);
+  background-color: #C7EFCF;
 }
 
 .header {
   position: relative;
   height: 44px;
-  background-color: #DFFF00;
+  background-color: #EEF5DB;
 }
 
 .title {
@@ -25,7 +25,7 @@ body {
 }
 
 .menu-btn-box:hover {
-  background-color: #9cb402;
+  background-color: #D6D1B1;
 }
 
 .menu-btn {
@@ -38,7 +38,6 @@ body {
 }
 
 .carousel-box {
-  background-color: rgb(0,0,204);
   height: 420px;
   padding: 0px;
   border: 0px;
@@ -138,22 +137,25 @@ body {
 .bodyText {
   width: 100%;
   height: 540px;
-  background-color: rgb(0,255,0);
   position: relative;
   bottom: 19px;
 }
 
 .intro {
   position: relative;
-  width: 764px;
-  padding-top: 40px;
+  width: 1000px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 25px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 60px;
+  background-color: #D6D1B1;
 }
 
 .footer {
   width: 100%;
-  background-color: rgb(101,101,101);
+  background-color: #FE5F55;
   height: 55px;
 }
 
